@@ -4,20 +4,24 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
+import { QuoteTextComponent } from './components/quote-text/quote-text.component';
 
 describe('AppComponent', () => {
-  const routes: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'about', component: AboutComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full'}
-  ];
+  // const routes: Routes = [
+  //   { path: 'home', component: HomeComponent },
+  //   { path: 'about', component: AboutComponent },
+  //   { path: '', redirectTo: '/home', pathMatch: 'full'}
+  // ];
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        // HomeComponent,
+        // AboutComponent, 
+        // QuoteTextComponent
       ],
     }).compileComponents();
   });
@@ -38,6 +42,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-testing-principles app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to angular-testing-principles!');
   });
 });

@@ -6,7 +6,7 @@ import { DebugElement } from '@angular/core';
 import { UserComponent } from './user.component';
 import { UserServiceMock } from '../../mocks/user.service.mock';
 
-describe('ContactComponent', () => {
+describe('UserComponent', () => {
     let comp: UserComponent;
     let fixture: ComponentFixture<UserComponent>;
 

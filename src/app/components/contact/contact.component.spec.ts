@@ -41,6 +41,7 @@ describe('ContactComponent', () => {
   }));
 
   it(`should call the onSubmit method`, async(() => {
+    fixture.detectChanges();
     spyOn(comp, 'onSubmit');
     el = fixture.debugElement.query(By.css('button')).nativeElement;
     el.click();
