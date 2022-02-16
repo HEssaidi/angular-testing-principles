@@ -9,6 +9,7 @@ import { UserServiceMock } from '../../mocks/user.service.mock';
 describe('UserComponent', () => {
     let comp: UserComponent;
     let fixture: ComponentFixture<UserComponent>;
+    let userService: UserService
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -16,11 +17,13 @@ describe('UserComponent', () => {
                 UserComponent
             ],
             providers: [
-                { provide: UserService, useClass: UserServiceMock }
+                // { provide: UserService, useClass: UserServiceMock }
+                UserService
             ]
         }).compileComponents().then(() => {
             fixture = TestBed.createComponent(UserComponent);
             comp = fixture.componentInstance; // UserComponent test instance
+            userService = TestBed.inject(UserService)
         });
     }));
 
@@ -39,5 +42,8 @@ describe('UserComponent', () => {
     }));
     it(`should un-register userRequest`, async(() => {
         expect(comp.unSendRequestByUser()).toEqual(1);
+    }));
+    it(`should return the value "request available !!" `, async(() => {
+        expect(comp.sendRequest()).toEqual("request available !!");
     }));
 });

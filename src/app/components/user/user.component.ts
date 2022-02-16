@@ -12,11 +12,19 @@ export class UserComponent {
   private userService: UserService = new UserService;
   userCount=this.userService.getUsers().length;
 
-  // users;
 
-  constructor() {
-    // this.users = this.userService.getUsers();
-    // this.userCount=this.userService.getUsers().length
+  constructor(private userrService: UserService ) {
+    this.userrService.authenticate();
+  }
+
+
+  sendRequest(){
+    if(this.userrService.checkAuthentication()){
+      return "request available !!";
+    }
+    else {
+      return "request not available !!";
+    }
   }
 
   sendRequestByUser(){

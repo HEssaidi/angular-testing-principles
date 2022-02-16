@@ -16,4 +16,12 @@ export class UserService {
           }
       ];
   }
+
+
+  authenticate(){
+    localStorage.setItem('name', 'user1')
+  }
+  checkAuthentication(){
+    return (localStorage.getItem('name') === 'user1')
+  }
 }
