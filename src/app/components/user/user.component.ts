@@ -8,9 +8,22 @@ import { UserService } from './user.service';
 })
 export class UserComponent {
   text = 'user page';
-  users;
+  serverRequestCapacity=30;
+  private userService: UserService = new UserService;
+  userCount=this.userService.getUsers().length;
 
-  constructor(private userService: UserService) {
-    this.users = this.userService.getUsers();
+  // users;
+
+  constructor() {
+    // this.users = this.userService.getUsers();
+    // this.userCount=this.userService.getUsers().length
   }
+
+  sendRequestByUser(){
+    return ++this.userCount
+  }
+  unSendRequestByUser(){
+    return --this.userCount
+  }
+
 }

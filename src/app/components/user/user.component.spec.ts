@@ -24,13 +24,20 @@ describe('UserComponent', () => {
         });
     }));
 
-    it(`should have one user`, async(() => {
-        expect(comp.users.length).toEqual(1);
+    it(`should have 2 users`, async(() => {
+        expect(comp.userCount).toEqual(2);
     }));
 
     it(`html should render one user`, async(() => {
         fixture.detectChanges();
         const el = fixture.nativeElement.querySelector('p');
         expect(el.innerText).toContain('user1');
+    }));
+
+    it(`should register userRequest`, async(() => {
+        expect(comp.sendRequestByUser()).toEqual(3);
+    }));
+    it(`should un-register userRequest`, async(() => {
+        expect(comp.unSendRequestByUser()).toEqual(1);
     }));
 });
