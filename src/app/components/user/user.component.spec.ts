@@ -44,6 +44,8 @@ describe('UserComponent', () => {
         expect(comp.unSendRequestByUser()).toEqual(1);
     }));
     it(`should return the value "request available !!" `, async(() => {
+        spyOn(userService, "checkAuthentication").and.returnValue(true);
         expect(comp.sendRequest()).toEqual("request available !!");
+        expect(userService.checkAuthentication).toHaveBeenCalled();
     }));
 });

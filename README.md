@@ -22,6 +22,7 @@ The ``beforeEach`` function is called once before each spec is run in the descri
 
 #### SpyOn 
 Jasmine Spies help us to mock the execution of the method/function. It's easy way to check a method was called or not, **without leaving Subject Under Test (SUT)**
+``spyOn() `` takes two parameters: the first parameter is the name of the object and the second parameter is the name of the method to be spied upon. It replaces the spied method with a stub, and does not actually execute the real method. The spyOn() function can however be called only on existing methods.
 ##### providers 
 To test a service, you set the providers metadata property with an array of the services that you'll test or mock.
 
