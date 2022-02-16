@@ -44,4 +44,9 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to angular-testing-principles!');
   });
+  it('should contain "ghi" elements', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const appComponent = fixture.componentInstance; // AppComponent test instance    
+    expect(appComponent.strArray).toContain('ghi');
+  });
 });
