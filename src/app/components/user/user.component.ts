@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 })
 export class UserComponent {
   text = 'user page';
+  isRequestAvailable: string ="";
   serverRequestCapacity=30;
   private userService: UserService = new UserService;
   userCount=this.userService.getUsers().length;
@@ -20,10 +21,10 @@ export class UserComponent {
 
   sendRequest(){
     if(this.userrService.checkAuthentication()){
-      return "request available !!";
+      this.isRequestAvailable = "request available !!";
     }
     else {
-      return "request not available !!";
+      this.isRequestAvailable = "request not available !!";
     }
   }
 

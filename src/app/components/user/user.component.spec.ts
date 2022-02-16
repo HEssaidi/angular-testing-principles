@@ -10,6 +10,7 @@ describe('UserComponent', () => {
     let comp: UserComponent;
     let fixture: ComponentFixture<UserComponent>;
     let userService: UserService
+    let h3: HTMLElement
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -43,9 +44,18 @@ describe('UserComponent', () => {
     it(`should un-register userRequest`, async(() => {
         expect(comp.unSendRequestByUser()).toEqual(1);
     }));
-    it(`should return the value "request available !!" `, async(() => {
-        spyOn(userService, "checkAuthentication").and.returnValue(true);
-        expect(comp.sendRequest()).toEqual("request available !!");
-        expect(userService.checkAuthentication).toHaveBeenCalled();
+    // it(`should return the value "request available !!" `, async(() => {
+    //     spyOn(userService, "checkAuthentication").and.returnValue(true);
+    //     expect(comp.sendRequest()).toEqual("request available !!");
+    //     expect(userService.checkAuthentication).toHaveBeenCalled();
+    // }));
+
+    it(`h1 tag should have isRequestAvailable variable `, async(() => {
+        comp.sendRequest();
+        h3 = fixture.nativeElement.querySelector('h3');
+        // h3 = fixture.debugElement.query(By.css('h3')).nativeElement;
+
+        fixture.detectChanges();
+        expect(h3.innerHTML).toBe(comp.isRequestAvailable);
     }));
 });

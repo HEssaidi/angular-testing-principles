@@ -1,3 +1,5 @@
+<button (click)="sendRequest()"> Send request </button>
+<h3>{{ isRequestAvailable }}</h3>
 <div *ngFor='let item of users; let i = index'>
     <p>{{i}} {{item.name}} - {{item.surname}}</p>
 </div>
